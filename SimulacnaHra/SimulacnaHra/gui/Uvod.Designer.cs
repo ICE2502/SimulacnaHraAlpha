@@ -102,7 +102,6 @@
             0,
             0,
             0});
-            this.aNumericUpDownRiadky.ValueChanged += new System.EventHandler(this.aNumericUpDownRiadky_ValueChanged);
             // 
             // aNumericUpDownStlpce
             // 

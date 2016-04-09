@@ -12,6 +12,8 @@ namespace SimulacnaHra
 
         /// <summary>
         /// The main entry point for the application.
+        /// Na začiatku sa spustí úvodné okno. 
+        /// Po jeho zatvorení sa spustí hlavné okno hry.
         /// </summary>
         [STAThread]
         static void Main()

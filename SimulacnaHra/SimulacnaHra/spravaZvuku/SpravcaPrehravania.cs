@@ -29,6 +29,11 @@ namespace SimulacnaHra.spravaZvuku
             aCasovac.Start();
         }
 
+        /// <summary>
+        /// Otestovanie, či už dohrala pesnička.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         private void TestniPesnicku(Object source, ElapsedEventArgs e)
         {
             aPrehravac.Play();

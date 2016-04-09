@@ -73,16 +73,31 @@ namespace SimulacnaHra.gui
             AktualizujOdstavaneDp();
         }
 
+        /// <summary>
+        /// Ak sa zmení index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aComboBoxMozne_SelectedIndexChanged(object sender, EventArgs e)
         {
             aTextBoxInfo.Text = aStanica.PodrobneInfo(aComboBoxMozne.SelectedIndex);
         }
 
+        /// <summary>
+        /// Pri zavretí okna sa uvolní inštancia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StanicaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             aStanica.ZmazOkno();
         }
 
+        /// <summary>
+        /// Zmena indexu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aListBoxAktualne_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = aListBoxAktualne.SelectedIndex;
@@ -92,6 +107,11 @@ namespace SimulacnaHra.gui
             }
         }
 
+        /// <summary>
+        /// časovaš aktualizuje informácie a funkčnosť okna
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aTimer1_Tick(object sender, EventArgs e)
         {
             aButtonNakup.Enabled = aComboBoxMozne.SelectedIndex != -1;

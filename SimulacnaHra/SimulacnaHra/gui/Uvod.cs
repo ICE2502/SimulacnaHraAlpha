@@ -5,11 +5,20 @@ using SimulacnaHra.spravaZvuku;
 
 namespace SimulacnaHra.gui
 {
+    /// <summary>
+    /// Úvodné okno aplikácie
+    /// </summary>
     public partial class Uvod : Form
     {
 
+        /// <summary>
+        /// Event pri uzavretí
+        /// </summary>
         public event EventHandler OnClose;
 
+        /// <summary>
+        /// Konštruktor
+        /// </summary>
         public Uvod()
         {
             InitializeComponent();
@@ -20,15 +29,20 @@ namespace SimulacnaHra.gui
             aNumericUpDownStlpce.Value = 100;
         }
 
-        private void aNumericUpDownRiadky_ValueChanged(object sender, EventArgs e)
-        {
-        }
+        /// <summary>
+        /// Pri uzatvorení okna
+        /// </summary>
         protected virtual void CloseWindow()
         {
             if (OnClose != null)
                 OnClose(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Okno sa uzavrie a zobrazí sa hlavné okno hry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aButton1_Click(object sender, EventArgs e)
         {
             HernaPlocha.PocetRiadkov = (int)aNumericUpDownRiadky.Value;
@@ -36,6 +50,11 @@ namespace SimulacnaHra.gui
             CloseWindow();
         }
 
+        /// <summary>
+        /// Ak sa užívateľ rozhodne zavrieť toto okno
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Uvod_FormClosing(object sender, FormClosingEventArgs e)
         {
             Vlakno.Ukonci();

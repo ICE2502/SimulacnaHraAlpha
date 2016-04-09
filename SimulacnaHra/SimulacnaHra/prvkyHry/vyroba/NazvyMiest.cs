@@ -1,7 +1,7 @@
 ﻿namespace SimulacnaHra.prvkyHry.vyroba
 {
     /// <summary>
-    /// Možná názvy miest
+    /// Možné názvy miest
     /// </summary>
     public enum NazvyMiest : int
     {

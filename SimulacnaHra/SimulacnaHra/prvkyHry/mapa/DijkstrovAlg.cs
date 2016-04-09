@@ -5,6 +5,9 @@ using SimulacnaHra.prvkyHry.dopravneProstriedky;
 
 namespace SimulacnaHra.prvkyHry.mapa
 {
+    /// <summary>
+    /// Dojkstrov algoritmus slúži na hľadanie trás
+    /// </summary>
     public class DijkstrovAlg
     {
         private static HernaPlocha aHernaPlocha;
@@ -14,11 +17,13 @@ namespace SimulacnaHra.prvkyHry.mapa
         private static Vrchol aZacVrch;
         private static Vrchol aKonVrch;
 
-        public DijkstrovAlg()
-        {
-            //aHernaPlocha = Hra.DajInstanciu().DajHernuPlochu();
-        }
-
+        /// <summary>
+        /// Vyhľadaá trasu na grafe
+        /// </summary>
+        /// <param name="paZ">vychodrí bod</param>
+        /// <param name="paDo">koncový bod</param>
+        /// <param name="paDruhVozidla">alé je to vozidlo</param>
+        /// <returns></returns>
         public static List<Hrana> NajdiTrasu(Poloha paZ, Poloha paDo, DruhVozidla paDruhVozidla)
         {
             aHernaPlocha = Hra.DajInstanciu().DajHernuPlochu();
@@ -41,6 +46,10 @@ namespace SimulacnaHra.prvkyHry.mapa
             return aTrasa;
         }
 
+        /// <summary>
+        /// Vyhľadanie začiatočného vrcholu v zozname vrcholov
+        /// </summary>
+        /// <returns>začiatočný vrchol</returns>
         private static Vrchol NajdiZaciatocnyVrchol()
         {
             return aHernaPlocha.ZoznamVrcholov.FirstOrDefault(item =>

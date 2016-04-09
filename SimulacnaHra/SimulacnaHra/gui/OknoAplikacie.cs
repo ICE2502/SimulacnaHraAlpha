@@ -250,6 +250,11 @@ namespace SimulacnaHra.gui
             }
         }
 
+        /// <summary>
+        /// Pri ukončení činnosti sa vypne hudba a samostatnom procese a ukončí sa aplikácia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OknoAplikacie_FormClosing(object sender, FormClosingEventArgs e)
         {
             Vlakno.Ukonci();

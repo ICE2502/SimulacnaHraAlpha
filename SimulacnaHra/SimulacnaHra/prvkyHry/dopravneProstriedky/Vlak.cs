@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using gui;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
@@ -13,6 +9,10 @@ using SimulacnaHra.Properties;
 
 namespace SimulacnaHra.prvkyHry.dopravneProstriedky
 {
+    /// <summary>
+    /// Vlak je dopravný prostriedok, ktorý jazdí po kolajniciach.
+    /// Vyznačuje sa veľkou rýchlosťou a kapacitou
+    /// </summary>
     public class Vlak : PrototypDp
     {
         private int aAktualnyFrame;
@@ -30,6 +30,11 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
 
         }
 
+        /// <summary>
+        /// Kopírovací konštruktor
+        /// </summary>
+        /// <param name="paPredloha"></param>
+        /// <param name="paSmer"></param>
         public Vlak(PrototypDp paPredloha, SmerZast paSmer)
             : base(paPredloha)
         {
@@ -49,6 +54,11 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
             aTrasa = new List<Hrana>();
         }
 
+        /// <summary>
+        /// Vyhľadanie trasy pokocou dijkstru
+        /// </summary>
+        /// <param name="paPolohaDo"></param>
+        /// <returns></returns>
         public override bool NajdiTrasu(Poloha paPolohaDo)
         {
             JeVCieli = false;
@@ -66,6 +76,9 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
             return true;
         }
 
+        /// <summary>
+        /// Vykonanie pohybu
+        /// </summary>
         public override void VykonajPohyb()
         {
             if (Strateny) return;
