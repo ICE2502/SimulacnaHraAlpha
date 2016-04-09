@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9501E20-5B34-4F7B-94FE-F387FA854D19}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimulacnaHra</RootNamespace>
+    <AssemblyName>SimulacnaHra</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gui\OknoAplikacie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\OknoAplikacie.Designer.cs">
+      <DependentUpon>OknoAplikacie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\Kamera.cs" />
+    <Compile Include="gui\DopravnyProstriedokForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\DopravnyProstriedokForm.Designer.cs">
+      <DependentUpon>DopravnyProstriedokForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\SpravcaOkien.cs" />
+    <Compile Include="gui\Uvod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\Uvod.Designer.cs">
+      <DependentUpon>Uvod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="prvkyHry\dopravneProstriedky\Vlak.cs" />
+    <Compile Include="prvkyHry\SpravcaObrazkov.cs" />
+    <Compile Include="spravaZvuku\PrehravacMidi.cs" />
+    <Compile Include="gui\Sprava.cs" />
+    <Compile Include="gui\StanicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\StanicaForm.Designer.cs">
+      <DependentUpon>StanicaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\VyrobaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\VyrobaForm.Designer.cs">
+      <DependentUpon>VyrobaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ZoskupenieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ZoskupenieForm.Designer.cs">
+      <DependentUpon>ZoskupenieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ZoznamDopravProstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ZoznamDopravProstForm.Designer.cs">
+      <DependentUpon>ZoznamDopravProstForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ZoznamStanic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ZoznamStanic.Designer.cs">
+      <DependentUpon>ZoznamStanic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\ZoznamVyrobyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\ZoznamVyrobyForm.Designer.cs">
+      <DependentUpon>ZoznamVyrobyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="matematika\Nahoda.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="prvkyHry\dopravneProstriedky\DruhVozidla.cs" />
+    <Compile Include="prvkyHry\IMaRozhranie.cs" />
+    <Compile Include="prvkyHry\mapa\DijkstrovAlg.cs" />
+    <Compile Include="prvkyHry\mapa\Hrana.cs" />
+    <Compile Include="prvkyHry\mapa\Vrchol.cs" />
+    <Compile Include="prvkyHry\mapa\Vykreslene.cs" />
+    <Compile Include="prvkyHry\ovladanie\BocneMenu.cs" />
+    <Compile Include="prvkyHry\ovladanie\HorneMenu.cs" />
+    <Compile Include="prvkyHry\ovladanie\TlacitkaNaPloche.cs" />
+    <Compile Include="prvkyHry\ovladanie\Tlacitko.cs" />
+    <Compile Include="hra\Hra.cs" />
+    <Compile Include="hra\Poloha.cs" />
+    <Compile Include="hra\Spolocnost.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="prvkyHry\dopravneProstriedky\Auto.cs" />
+    <Compile Include="prvkyHry\dopravneProstriedky\DopravnyProstriedok.cs" />
+    <Compile Include="prvkyHry\dopravneProstriedky\Lietadlo.cs" />
+    <Compile Include="prvkyHry\dopravneProstriedky\Lod.cs" />
+    <Compile Include="prvkyHry\dopravneProstriedky\PrototypDP.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Boja.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Cesta.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Dok.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Infrastruktura.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Letisko.cs" />
+    <Compile Include="prvkyHry\infrastruktura\MiestoZastavenia.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Priroda.cs" />
+    <Compile Include="prvkyHry\infrastruktura\SmerCesty.cs" />
+    <Compile Include="prvkyHry\infrastruktura\SmerDoku.cs" />
+    <Compile Include="prvkyHry\infrastruktura\SmerInf.cs" />
+    <Compile Include="prvkyHry\infrastruktura\SmerZast.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Stanica.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Zastavka.cs" />
+    <Compile Include="prvkyHry\infrastruktura\Zeleznica.cs" />
+    <Compile Include="prvkyHry\infrastruktura\ZeleznicnaStanica.cs" />
+    <Compile Include="prvkyHry\infrastruktura\ZoskupenieStanic.cs" />
+    <Compile Include="prvkyHry\mapa\HernaPlocha.cs" />
+    <Compile Include="prvkyHry\mapa\Policko.cs" />
+    <Compile Include="prvkyHry\ovladanie\PozadieMenu.cs" />
+    <Compile Include="prvkyHry\ovladanie\VykonavanaCinnost.cs" />
+    <Compile Include="prvkyHry\vyroba\DruhVyrody.cs" />
+    <Compile Include="prvkyHry\vyroba\Mesto.cs" />
+    <Compile Include="prvkyHry\vyroba\NazvyMiest.cs" />
+    <Compile Include="prvkyHry\vyroba\PrepravJednotka.cs" />
+    <Compile Include="prvkyHry\vyroba\TypPrepravJednotky.cs" />
+    <Compile Include="prvkyHry\vyroba\Vyroba.cs" />
+    <Compile Include="prvkyHry\vyroba\ZoznamPrirodzenychStanic.cs" />
+    <Compile Include="prvkyHry\ZakladObrazku.cs" />
+    <Compile Include="spravaZvuku\Vlakno.cs" />
+    <Compile Include="spravaZvuku\SpravcaPrehravania.cs" />
+    <EmbeddedResource Include="gui\OknoAplikacie.resx">
+      <DependentUpon>OknoAplikacie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\DopravnyProstriedokForm.resx">
+      <DependentUpon>DopravnyProstriedokForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\StanicaForm.resx">
+      <DependentUpon>StanicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\Uvod.resx">
+      <DependentUpon>Uvod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\VyrobaForm.resx">
+      <DependentUpon>VyrobaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ZoskupenieForm.resx">
+      <DependentUpon>ZoskupenieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ZoznamDopravProstForm.resx">
+      <DependentUpon>ZoznamDopravProstForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ZoznamStanic.resx">
+      <DependentUpon>ZoznamStanic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\ZoznamVyrobyForm.resx">
+      <DependentUpon>ZoznamVyrobyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\farctory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oceliaren.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sawmill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\el.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\farm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mineCoalM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mineRudaM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rafineria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letisko.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaKrižovatka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaOdbVodorovneDole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaOdbVodorovneHore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaOdbZvysleVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaOdbZvysleVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaVodorovne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaZakDoleVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaZakDoleVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaZakHoleVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaZakHoreVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cestaZvisle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pozadieMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zelOdbVlavoDole.png" />
+    <None Include="Resources\zelOdbVlavoHore.png" />
+    <None Include="Resources\zelOdbVpravoDole.png" />
+    <None Include="Resources\zelOdbVpravoHore.png" />
+    <None Include="Resources\zelVodorovne.png" />
+    <None Include="Resources\zelZvisle.png" />
+    <None Include="Resources\MenuCesty.png" />
+    <None Include="Resources\MenuZeleznice.png" />
+    <None Include="Resources\zelStanicaZv.png" />
+    <None Include="Resources\zelStanicaVodor.png" />
+    <None Include="Resources\dokVpravo.png" />
+    <None Include="Resources\dokDole.png" />
+    <None Include="Resources\dokHore.png" />
+    <None Include="Resources\dokVlavo.png" />
+    <None Include="Resources\MenuTerenu.png" />
+    <None Include="Resources\MenuVodnychStavieb.png" />
+    <None Include="Resources\boja.png" />
+    <None Include="Resources\oilPlat.png" />
+    <None Include="Resources\cestaZastavkaVodor.png" />
+    <None Include="Resources\cestaZastavkaZvy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lietadloHore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lietadloDole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lietadloVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lietadloVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lodVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lodDole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lodHore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lodVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vozidloDole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vozidloHore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vozidloVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vozidloVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vlakVodorovneVlavo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%281%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%282%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%283%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%284%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%285%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%286%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%287%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%288%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%289%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2810%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2811%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2812%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2813%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2814%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2815%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2816%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2817%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2818%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2819%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2820%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2821%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2822%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2823%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2824%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2825%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2826%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2827%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2828%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2829%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2830%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Zvuky\hudba%2831%29.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vlakVodorvoneVpravo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vlakZvisleDole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vlakZvisleHore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Uvod.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
