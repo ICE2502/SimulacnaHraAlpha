@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using gui;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
@@ -161,8 +162,10 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
         {
             if (aCiele.Count >= 2)
             {
+                Hra.DajInstanciu().DajHernuPlochu().PrejdiPolicka();
                 aTyp.Skryte = false;
                 aJeVPohybe = true;
+                NajdiTrasu();
                 aTyp.Strateny = false;
                 Stanica stan = Hra.DajInstanciu().DajHernuPlochu().DajMaticu()[Poloha.Riadok, Poloha.Stlpec].Zastavane as Stanica;
                 if (stan!= null)
@@ -172,7 +175,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
             }
             else
             {
-                Sprava.Info("Vozidlo nemá dostatok cielov!");
+                Sprava.Info("Dopravný prostriedok nemá dostatok cielov!");
             }
         }
 
@@ -286,6 +289,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
             bool najdenaTrasa = true;
             if (aTyp.Strateny)
             {
+                aJeVPohybe = false;
                 aTyp.DrawImage(paGafika);
                 return;
             }
@@ -346,10 +350,13 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
         /// </summary>
         public void NajdiTrasu()
         {
-            if (aTyp.Druh == DruhVozidla.cestne && aTyp.JeVCieli == false)
-            {
-                aTyp.NajdiTrasu(aCiele[aAktualnaPozicia].Poloha);
-            }
+                if (aTyp.Druh == DruhVozidla.cestne || aTyp.Druh == DruhVozidla.kolajove)
+                {
+                    if (aTyp.JeVCieli == false && aJeVPohybe)
+                    {
+                        aTyp.NajdiTrasu(aCiele[aAktualnaPozicia].Poloha);
+                    }
+                }
         }
 
         public override string ToString()

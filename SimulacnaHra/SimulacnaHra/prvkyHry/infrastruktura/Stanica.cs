@@ -87,7 +87,10 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 	    public void PridajOdstavene(DopravnyProstriedok paDp)
 	    {
             aOdstavene.Add(paDp);
-            aOkno.AktualizujOdstavaneDp();
+            if (aOkno != null)
+            {
+                aOkno.AktualizujOdstavaneDp();
+            }
 	    }
 
         /// <summary>
@@ -97,7 +100,11 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
         public void OdstranOdstavene(DopravnyProstriedok paDp)
         {
             aOdstavene.Remove(paDp);
-            aOkno.AktualizujOdstavaneDp();
+            if (aOkno != null)
+            {
+                aOkno.AktualizujOdstavaneDp();
+            }
+
         }
 
 	}//end Stanica
