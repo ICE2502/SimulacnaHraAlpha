@@ -30,3 +30,4 @@ D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaH
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.ZoznamVyrobyForm.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.Properties.Resources.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.csproj.GenerateResource.Cache
+D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.csprojResolveAssemblyReference.cache

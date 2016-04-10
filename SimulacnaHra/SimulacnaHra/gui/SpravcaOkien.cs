@@ -23,7 +23,7 @@ namespace SimulacnaHra.gui
             {
                 if (aLietadla == null)
                 {
-                    aLietadla = new ZoznamDopravProstForm(DruhVozidla.cestne);
+                    aLietadla = new ZoznamDopravProstForm(DruhVozidla.vzdusne);
                 }
                 aLietadla.Show();
                 aLietadla.Activate();
