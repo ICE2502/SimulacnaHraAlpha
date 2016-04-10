@@ -370,14 +370,27 @@ namespace SimulacnaHra.prvkyHry.mapa
                 {
                     susednePolicko = aMatica[paRiadok, paStlpec - 1];
 
-                    KontrolaZeleznicaRovnaVlavo(aktualnePolicko, susednePolicko);
-
+                    if (aktualnePolicko.Prostriedky())
+                    {
+                        KontrolaVrcholZeleznicaVlavo(aktualnePolicko, susednePolicko);
+                    }
+                    else
+                    {
+                        KontrolaZeleznicaRovnaVlavo(aktualnePolicko, susednePolicko);
+                    }
                 }
                 else if (smer == SmerInf.vertikalny)
                 {
                     susednePolicko = aMatica[paRiadok - 1, paStlpec];
 
-                    KontrolaZeleznicaRovnaHore(aktualnePolicko, susednePolicko);
+                    if (aktualnePolicko.Prostriedky())
+                    {
+                        KontrolaVrcholZeleznicaHore(aktualnePolicko, susednePolicko);
+                    }
+                    else
+                    {
+                        KontrolaZeleznicaRovnaHore(aktualnePolicko, susednePolicko);
+                    }
                 }
                 else if (smer == SmerInf.zatackaHoreVpravo)
                 {
