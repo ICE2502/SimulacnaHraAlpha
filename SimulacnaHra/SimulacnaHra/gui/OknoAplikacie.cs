@@ -102,7 +102,7 @@ namespace SimulacnaHra.gui
                     new Rectangle(5, 50, 155, 300), SystemColors.ControlText, umiestnenie);
 
             }
-            
+            /*
             Pen pero = new Pen(Color.Red, 5);
             List<Vrchol> vrchol = aHra.DajHernuPlochu().ZoznamVrcholov;
             List<Hrana> hrany = aHra.DajHernuPlochu().ZoznamHran;
@@ -134,7 +134,7 @@ namespace SimulacnaHra.gui
                         new Point((stlpecDruhy + 4 - aKamera.OdsadenieX) * Policko.cVelkostPolicka + 19,
                             (riadokDruhy + 1 - aKamera.OdsadenieY) * Policko.cVelkostPolicka + 19));
                 }
-            }
+            }*/
             
             base.OnPaint(paE);
         }
