@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using gui;
+using SimulacnaHra.gui;
 using SimulacnaHra.hra;
 using SimulacnaHra.matematika;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
@@ -23,6 +23,7 @@ namespace SimulacnaHra.prvkyHry.mapa {
     /// <summary>
     /// Políèko je základná orientaèná a logická jednotka hernej plochy
     /// </summary>
+    [Serializable]
 	public class Policko : ZakladObrazku{
 
 		private bool aPevnina;
@@ -197,14 +198,14 @@ namespace SimulacnaHra.prvkyHry.mapa {
         /// </summary>
         /// <param name="paSmer">smer</param>
         public void PostavCestu(int paSmer) {
-
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (paSmer > 0 && paSmer <= Enum.GetNames(typeof(SmerCesty)).Length)
             {
                 if (this.MozemStavat())
                 {
                     this.Zburaj(false);
                     Cesta cest = new Cesta((SmerCesty)paSmer, aPoloha);
-                    if(Spolocnost.UpravFinancie(-cest.Cena)){
+                    if(spol.UpravFinancie(-cest.Cena)){
                         aZastavane = cest;
                         Hra.DajInstanciu().DajHernuPlochu().PrejdiPolicka();
                     }
@@ -217,13 +218,14 @@ namespace SimulacnaHra.prvkyHry.mapa {
         }
 
         public void PostavZeleznicu(int paSmer) {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (paSmer > 0 && paSmer <= Enum.GetNames(typeof(SmerInf)).Length)
             {
                 if (this.MozemStavat())
                 {
                     this.Zburaj(false);
                     Zeleznica zel= new Zeleznica((SmerInf)paSmer, aPoloha);
-                    if (Spolocnost.UpravFinancie(-zel.Cena))
+                    if (spol.UpravFinancie(-zel.Cena))
                     {
                         aZastavane = zel;
                         Hra.DajInstanciu().DajHernuPlochu().PrejdiPolicka();
@@ -239,10 +241,11 @@ namespace SimulacnaHra.prvkyHry.mapa {
         /// <summary>
         /// Výstavba bóje
         /// </summary>
-        public void PostavBoju() { 
+        public void PostavBoju() {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if(!aPevnina && aZastavane == null && aVyroba == null){
                 Boja boj = new Boja(aPoloha);
-                if (Spolocnost.UpravFinancie(-boj.Cena)) 
+                if (spol.UpravFinancie(-boj.Cena)) 
                 {
                     aZastavane = boj;
                 }
@@ -255,9 +258,10 @@ namespace SimulacnaHra.prvkyHry.mapa {
         /// <param name="paVyvolalUzivatel">èi to volá hráè</param>
         public void Zburaj(bool paVyvolalUzivatel)
         {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (aVyroba == null && aZastavane != null)
             {
-                if (Spolocnost.UpravFinancie(-aZastavane.NakladyNaZburanie))
+                if (spol.UpravFinancie(-aZastavane.NakladyNaZburanie))
                 {
                     if (aZastavane is MiestoZastavenia)
                     {
@@ -312,11 +316,12 @@ namespace SimulacnaHra.prvkyHry.mapa {
         /// </summary>
         public void Konvertuj()
         {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if(aPoloha.Riadok != 0 && aPoloha.Stlpec != 0 && aPoloha.Riadok != HernaPlocha.PocetRiadkov-1 && aPoloha.Stlpec != HernaPlocha.PocetStlpcov-1)
             {
                 if (!aPevnina && aVyroba == null && aZastavane == null)
                 {
-                    if (Spolocnost.UpravFinancie(-cVysusenia))
+                    if (spol.UpravFinancie(-cVysusenia))
                     {
                         aPevnina = true;
                         NastavObrazok(Resources.grass, "grass");
@@ -324,7 +329,7 @@ namespace SimulacnaHra.prvkyHry.mapa {
                 }
                 else if (MozemStavat())
                 {
-                    if (Spolocnost.UpravFinancie(-cZavodnenia))
+                    if (spol.UpravFinancie(-cZavodnenia))
                     {
                         this.Zburaj(false);
                         aPevnina = false;
@@ -351,6 +356,7 @@ namespace SimulacnaHra.prvkyHry.mapa {
         {
             Policko[,] matica = Hra.DajInstanciu().DajHernuPlochu().DajMaticu();
             Dok dk = null;
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (MozemStavat())
             {
                 switch (paSmer)
@@ -383,10 +389,10 @@ namespace SimulacnaHra.prvkyHry.mapa {
                         }
                         break;
                 }
-                if ( dk != null && Spolocnost.OverVydavok(-dk.Cena) && OverOkolieStaniceZoskupenia(dk, 1, 1))
+                if ( dk != null && spol.OverVydavok(-dk.Cena) && OverOkolieStaniceZoskupenia(dk, 1, 1))
                 {
                     aZastavane = dk;
-                    Spolocnost.UpravFinancie(-dk.Cena);
+                    spol.UpravFinancie(-dk.Cena);
                 }
                 else
                 {
@@ -406,6 +412,7 @@ namespace SimulacnaHra.prvkyHry.mapa {
         /// <param name="upresnenieCinnosti">ktorá z nich</param>
         public void PostavZastavku(int upresnenieCinnosti)
         {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             try 
             {
                 Zastavka zast;
@@ -421,11 +428,11 @@ namespace SimulacnaHra.prvkyHry.mapa {
                     {
                         zast = new Zastavka(aPoloha, SmerZast.vertikalny);
                     }
-                    if (Spolocnost.OverVydavok(-zast.Cena) && OverOkolieStaniceZoskupenia(zast, 1, 1))
+                    if (spol.OverVydavok(-zast.Cena) && OverOkolieStaniceZoskupenia(zast, 1, 1))
                     {
                         aZastavane = zast;
                         Hra.DajInstanciu().DajHernuPlochu().PrejdiPolicka();
-                        Spolocnost.UpravFinancie(-zast.Cena);
+                        spol.UpravFinancie(-zast.Cena);
                     }
                 }
             }catch (InvalidCastException e)
@@ -437,6 +444,7 @@ namespace SimulacnaHra.prvkyHry.mapa {
 
         public void PostavStanicu(int upresnenieCinnosti)
         {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             try
             {
                 ZeleznicnaStanica zelSt;
@@ -451,11 +459,11 @@ namespace SimulacnaHra.prvkyHry.mapa {
                     {
                         zelSt = new ZeleznicnaStanica(aPoloha, SmerZast.vertikalny);
                     }
-                    if (Spolocnost.OverVydavok(-zelSt.Cena) && OverOkolieStaniceZoskupenia(zelSt, 1, 1))
+                    if (spol.OverVydavok(-zelSt.Cena) && OverOkolieStaniceZoskupenia(zelSt, 1, 1))
                     {
                         aZastavane = zelSt;
                         Hra.DajInstanciu().DajHernuPlochu().PrejdiPolicka();
-                        Spolocnost.UpravFinancie(-zelSt.Cena);
+                        spol.UpravFinancie(-zelSt.Cena);
                     }
                 }
                 else
@@ -493,7 +501,8 @@ namespace SimulacnaHra.prvkyHry.mapa {
                 }
             }
 
-            if (mozemStavat && Spolocnost.OverVydavok(-letisko.Cena) && OverOkolieStaniceZoskupenia(letisko, letisko.PocetRiadkov, letisko.PocetStlpcov))
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
+            if (mozemStavat && spol.OverVydavok(-letisko.Cena) && OverOkolieStaniceZoskupenia(letisko, letisko.PocetRiadkov, letisko.PocetStlpcov))
             {
                 for (int riadok = letisko.Poloha.Riadok; riadok < letisko.Poloha.Riadok + letisko.PocetRiadkov; riadok++)
                 {
@@ -504,7 +513,7 @@ namespace SimulacnaHra.prvkyHry.mapa {
                         hladanePolicko.Zastavane = letisko;
                     }
                 }
-                Spolocnost.UpravFinancie(-letisko.Cena);
+                spol.UpravFinancie(-letisko.Cena);
             }
             else
             {

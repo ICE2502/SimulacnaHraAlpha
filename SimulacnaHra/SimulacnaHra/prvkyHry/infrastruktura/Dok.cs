@@ -18,6 +18,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// Dok je stanica pre lode
     /// </summary>
+    [Serializable]
 	public class Dok : Stanica {
 
         private List<PrototypDp> aMozneStroje;
@@ -104,13 +105,15 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 
 	    public override bool PostavStroj(int paPor)
 	    {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
+
             if (paPor >= 0 && paPor < aMozneStroje.Count)
             {
                 Lod lodStavana = new Lod(aMozneStroje[paPor]);
-                if (Spolocnost.UpravFinancie(-lodStavana.Cena))
+                if (spol.UpravFinancie(-lodStavana.Cena))
                 {
                     DopravnyProstriedok dp = new DopravnyProstriedok(lodStavana);
-                    Hra.DajInstanciu().Spolocnost.PridajDP(dp);
+                    spol.PridajDP(dp);
                     PridajOdstavene(dp);
                 }
             }

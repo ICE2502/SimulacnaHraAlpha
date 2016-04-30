@@ -20,6 +20,7 @@ namespace SimulacnaHra.prvkyHry.mapa
     /// Herná polcha má na starosti generovanie mapy a výroby
     /// a vytváranie digrafu z cestnej siete.
     /// </summary>
+    [Serializable]
     public class HernaPlocha
     {
         private Policko[,] aMatica;
@@ -37,6 +38,7 @@ namespace SimulacnaHra.prvkyHry.mapa
         public List<Vyroba> ZoznamVyroby { get { return aVyroba; } }
         public List<Vrchol> ZoznamVrcholov { get { return aZoznamVrcholov; } }
         public List<Hrana> ZoznamHran { get { return aZoznamHran; } }
+        public List<ZoskupenieStanic> ZoznamPrirodzenychStanic { get; private set; }
 
         /// <summary>
         /// Inicializácia a spustenie generovania
@@ -49,6 +51,7 @@ namespace SimulacnaHra.prvkyHry.mapa
             aVyroba = new List<Vyroba>();
             aZoznamHran = new List<Hrana>();
             aZoznamVrcholov = new List<Vrchol>();
+            ZoznamPrirodzenychStanic = new List<ZoskupenieStanic>();
             //aGraf = new Graf();
 
             this.GenerujPlochu();
@@ -148,7 +151,7 @@ namespace SimulacnaHra.prvkyHry.mapa
                 mUm = MoznostUmiestnit(riadok, riadokMax, stlpec, stlpecMax, false, false);
                 if (mUm)
                 {
-                    ZoznamPrirodzenychStanic.DajInstanciu().Pridaj(vyr.Zoskupenie);
+                    ZoznamPrirodzenychStanic.Add(vyr.Zoskupenie);
                 }
             }else if (paDrVyr == DruhVyroby.RopnaRafineria)
             {

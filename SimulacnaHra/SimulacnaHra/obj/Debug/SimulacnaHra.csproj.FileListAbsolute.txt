@@ -14,11 +14,8 @@ D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHra\SimulacnaHra\obj\Debug\Simul
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.pdb
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.OknoAplikacie.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.Uvod.resources
-D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\bin\Debug\SimulacnaHra.exe.config
-D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.exe
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.pdb
-D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\bin\Debug\SimulacnaHra.exe
-D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\bin\Debug\SimulacnaHra.pdb
+D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\bin\Debug\SimulacnaHra.exe.config
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.OknoAplikacie.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.DopravnyProstriedokForm.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.StanicaForm.resources
@@ -30,4 +27,7 @@ D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaH
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.gui.ZoznamVyrobyForm.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.Properties.Resources.resources
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.csproj.GenerateResource.Cache
+D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\bin\Debug\SimulacnaHra.exe
+D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\bin\Debug\SimulacnaHra.pdb
+D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.exe
 D:\Moje dokumenty\Slavko\Škola\GitHub\SimulacnaHraAlpha\SimulacnaHra\SimulacnaHra\obj\Debug\SimulacnaHra.csprojResolveAssemblyReference.cache

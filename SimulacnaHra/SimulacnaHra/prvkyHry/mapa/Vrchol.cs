@@ -1,8 +1,11 @@
-﻿namespace SimulacnaHra.prvkyHry.mapa
+﻿using System;
+
+namespace SimulacnaHra.prvkyHry.mapa
 {
     /// <summary>
     /// Vrchol digrafu, pre účely hľadania trás
     /// </summary>
+    [Serializable]
     public class Vrchol
     {
         public Policko Policko { get; set; }

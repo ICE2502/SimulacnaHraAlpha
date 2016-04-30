@@ -38,6 +38,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.aNumericUpDownRiadky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNumericUpDownStlpce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,10 +58,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(623, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 18);
+            this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nová hra:";
             // 
@@ -162,11 +164,33 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(626, 404);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Načítaj hru:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(627, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 43);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Načítaj uloženú pozíciu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Uvod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 545);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.aButton1);
@@ -200,5 +224,7 @@
         private System.Windows.Forms.Button aButton1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }

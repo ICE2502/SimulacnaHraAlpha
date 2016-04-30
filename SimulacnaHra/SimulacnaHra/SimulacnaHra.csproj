@@ -171,7 +171,6 @@
     <Compile Include="prvkyHry\vyroba\PrepravJednotka.cs" />
     <Compile Include="prvkyHry\vyroba\TypPrepravJednotky.cs" />
     <Compile Include="prvkyHry\vyroba\Vyroba.cs" />
-    <Compile Include="prvkyHry\vyroba\ZoznamPrirodzenychStanic.cs" />
     <Compile Include="prvkyHry\ZakladObrazku.cs" />
     <Compile Include="spravaZvuku\Vlakno.cs" />
     <Compile Include="spravaZvuku\SpravcaPrehravania.cs" />

@@ -7,11 +7,14 @@
 ///////////////////////////////////////////////////////////
 
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
 using SimulacnaHra.Properties;
 
 namespace SimulacnaHra.prvkyHry.infrastruktura {
+
+    [Serializable]
 	public class Zeleznica : Infrastruktura {
 
 		private SmerInf aOrientacia;

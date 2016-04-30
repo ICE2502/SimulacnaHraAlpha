@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace SimulacnaHra.prvkyHry.mapa
@@ -6,6 +7,7 @@ namespace SimulacnaHra.prvkyHry.mapa
     /// <summary>
     /// Hrana v digrafe, má dva vrcholy a zoznam políčok po ktorých vedie
     /// </summary>
+    [Serializable]
     public class Hrana
     {
         public Vrchol Vrchol1 { get; set; }

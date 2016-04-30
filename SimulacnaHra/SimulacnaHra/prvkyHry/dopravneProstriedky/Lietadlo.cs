@@ -16,6 +16,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky {
     /// <summary>
     /// Trieda, ktorá reprezentuje lietalo
     /// </summary>
+    [Serializable]
 	public class Lietadlo : PrototypDp
 	{
 	    private Poloha aPolohaDo;

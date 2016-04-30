@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
-using gui;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.infrastruktura;
@@ -23,6 +22,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
     /// Dopravný prostriedok je základnou prepravnou
     /// jednotkou tejto hry, jej zmyslom a stavebným kameòom.
     /// </summary>
+    [Serializable]
     public class DopravnyProstriedok : IMaRozhranie
     {
 
@@ -38,6 +38,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
         private Dictionary<TypPrepravJednotky, int> aNakladPocty;
         private bool aCestaDoDepa;
         private bool aJeVPohybe;
+        [NonSerialized]
         private DopravnyProstriedokForm aOkno = null;
 
         public bool JeVCieli {
@@ -390,8 +391,9 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
         /// </summary>
         public void ZmazSa()
         {
-            Spolocnost.UpravFinancie(aTyp.Cena/2);
-            Hra.DajInstanciu().Spolocnost.ZmazDP(this);
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
+            spol.UpravFinancie(aTyp.Cena / 2);
+            spol.ZmazDP(this);
             Zastav();
             aJeVPohybe = false;
             aTyp = null;

@@ -11,10 +11,12 @@ namespace SimulacnaHra.prvkyHry {
     /// Predok vöetkÈho, Ëo sa d· vykresliù na hlavnÈ okno
     /// rieöi vykrasæovanie obr·zkov a kliknutia na obrazovku
     /// </summary>
+    [Serializable]
     public class ZakladObrazku : IDisposable
     {
         private bool aDisposed = false;
         private Bitmap aObrazok;
+        [NonSerialized]
         private Kamera aKamera;
         private Rectangle aObdlznik;
 
@@ -75,6 +77,7 @@ namespace SimulacnaHra.prvkyHry {
         /// <param name="paGafika"></param>
         public void DrawImage(Graphics paGafika)
         {
+            aKamera = Kamera.DajInstanciu();
             if (Skryte) return;
             if (aX >= (aKamera.OdsadenieX - 2) * Policko.cVelkostPolicka && aX < (aKamera.OdsadenieX + Kamera.cPocetOkienStplce - PozadieMenu.cPosunZBoku) * Policko.cVelkostPolicka)
             {

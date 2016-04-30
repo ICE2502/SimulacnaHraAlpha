@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.matematika;
 using SimulacnaHra.Properties;
@@ -18,6 +19,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 	/// je nutnÈ zb˙raù keÔ chce hr·Ë stavaù a z·roveÚ oûivuje mapu
 	/// 25% öanca na to, ûe to buse kameÚ a 75% ûe strom
 	/// </summary>
+    [Serializable]
 	public class Priroda : Infrastruktura {
 
         private bool aJeStrom;

@@ -60,5 +60,12 @@ namespace SimulacnaHra.gui
             Vlakno.Ukonci();
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HernaPlocha.PocetRiadkov = 20;
+            HernaPlocha.PocetStlpcov = 40;
+            CloseWindow();
+        }
     }
 }

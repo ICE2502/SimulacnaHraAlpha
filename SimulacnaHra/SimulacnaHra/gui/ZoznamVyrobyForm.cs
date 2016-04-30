@@ -19,11 +19,13 @@ namespace SimulacnaHra.gui
         /// <param name="paList"></param>
         public ZoznamVyrobyForm(List<Vyroba> paList)
         {
-            Text = "Zoznam výroby";
+            
             aZoznamMiest = new List<Mesto>();
             aZoznamVyroba = paList;
 
             InitializeComponent();
+
+            Text = "Zoznam výroby";
 
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -41,11 +43,12 @@ namespace SimulacnaHra.gui
         /// <param name="paList"></param>
         public ZoznamVyrobyForm(List<Mesto> paList)
         {
-            Text = "Zoznam miest";
+            
             aZoznamVyroba = new List<Vyroba>();
             aZoznamMiest = paList;
 
             InitializeComponent();
+            Text = "Zoznam miest";
 
             foreach (Mesto toto in aZoznamMiest)
             {

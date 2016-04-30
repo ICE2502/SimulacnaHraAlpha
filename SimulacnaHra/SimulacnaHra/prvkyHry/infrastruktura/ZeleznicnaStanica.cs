@@ -15,6 +15,8 @@ using SimulacnaHra.prvkyHry.vyroba;
 using SimulacnaHra.Properties;
 
 namespace SimulacnaHra.prvkyHry.infrastruktura {
+
+    [Serializable]
 	public class ZeleznicnaStanica : Stanica {
 
 		private int aDlzkaNastupista;
@@ -79,13 +81,14 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 
 	    public override bool PostavStroj(int paPor)
 	    {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (paPor >= 0 && paPor < aMozneStroje.Count)
             {
                 Vlak autoStavane = new Vlak(aMozneStroje[paPor], SmerZastavky);
-                if (Spolocnost.UpravFinancie(-autoStavane.Cena))
+                if (spol.UpravFinancie(-autoStavane.Cena))
                 {
                     DopravnyProstriedok dp = new DopravnyProstriedok(autoStavane);
-                    Hra.DajInstanciu().Spolocnost.PridajDP(dp);
+                    spol.PridajDP(dp);
                     PridajOdstavene(dp);
                 }
             }

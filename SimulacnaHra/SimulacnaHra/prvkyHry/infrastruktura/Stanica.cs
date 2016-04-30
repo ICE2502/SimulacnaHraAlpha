@@ -16,9 +16,10 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// Abstraktný predok všetkých staníc, rieši príjem tovarov a správu vozidiel
     /// </summary>
+    [Serializable]
 	public abstract class Stanica : MiestoZastavenia, IMaRozhranie
     {
-
+        [NonSerialized]
         private StanicaForm aOkno = null;
 		private List<DopravnyProstriedok> aOdstavene;
         public ZoskupenieStanic Zoskupenie { get; set; }

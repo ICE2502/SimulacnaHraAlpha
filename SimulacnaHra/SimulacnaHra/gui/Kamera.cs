@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.mapa;
 using SimulacnaHra.prvkyHry.ovladanie;
@@ -17,7 +18,8 @@ namespace SimulacnaHra.gui {
     /// Trieda Kamera slúi na resúvanie poh¾adu po hernej ploche.
     /// Všetko èo sa zobrazuje musí spada pod jej vırez
     /// </summary>
-	public class Kamera {
+
+    public class Kamera {
 
         private static Kamera aKamera;
         private Poloha aPoloha;

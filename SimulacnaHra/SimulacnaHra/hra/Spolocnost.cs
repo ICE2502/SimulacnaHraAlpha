@@ -8,7 +8,7 @@
 
 using System;
 using System.Collections.Generic;
-using gui;
+using SimulacnaHra.gui;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
 using SimulacnaHra.prvkyHry.infrastruktura;
 
@@ -18,10 +18,11 @@ namespace SimulacnaHra.hra {
     /// SpoloËnosù je Ëasù hry, ktor˙ ovl·da hr·Ë, 
     /// star· sa o jej prosperovanie
     /// </summary>
+    [Serializable]
 	public class Spolocnost {
 
 		private List<DopravnyProstriedok> aDopravneProstriedky;
-		private static int aFinincie;
+        private int aFinincie;
 		private List<Infrastruktura> aInfrastruktura;
 		private string aNazov;
 		private List<ZoskupenieStanic> aStanice;
@@ -32,6 +33,12 @@ namespace SimulacnaHra.hra {
         /// Vr·ti stav financiÌ
         /// </summary>
 	    public int Financie { get { return aFinincie; } }
+
+        public int NastavFinanie
+        {
+            get { return 0; }
+            set { aFinincie = value; }
+        }
 
         /// <summary>
         /// Vr·ti zoznam StanÌc, ktorÈ vlastnÌ hr·Ë
@@ -53,7 +60,7 @@ namespace SimulacnaHra.hra {
 	    /// <param name="paNazov">Reùazec znakov - n·zov spoloËnosti</param>
 		public Spolocnost(String paNazov){
             aNazov = paNazov;
-            aFinincie = 2000000;
+	        aFinincie = 2000000;
             aStanice = new List<ZoskupenieStanic>();
             aDopravneProstriedky = new List<DopravnyProstriedok>();
 		}
@@ -63,7 +70,7 @@ namespace SimulacnaHra.hra {
 	    /// </summary>
 	    /// <param name="paSuma">suma - celÈ ËÌslo</param>
 	    /// <returns>Ëi sa d·, alebo nie</returns>
-		public static bool OverVydavok(int paSuma)
+		public bool OverVydavok(int paSuma)
         {
 
             if (aFinincie+paSuma <= 0)
@@ -80,7 +87,7 @@ namespace SimulacnaHra.hra {
 		/// </summary>
         /// <param name="paSuma">suma - celÈ ËÌslo</param>
 		/// <returns>Ëi sa podarilo vykonaù</returns>
-		public static bool UpravFinancie(int paSuma)
+		public bool UpravFinancie(int paSuma)
         {
             if (OverVydavok(paSuma)) {
                 aFinincie += paSuma;

@@ -16,6 +16,7 @@ namespace SimulacnaHra.prvkyHry.vyroba {
     /// <summary>
     /// Trieda reprezentujúca mesto
     /// </summary>
+    [Serializable]
 	public class Mesto : Vyroba {
 
 		private int aPriprastok;

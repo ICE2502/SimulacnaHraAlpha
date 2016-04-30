@@ -1,7 +1,9 @@
-﻿using gui;
-using SimulacnaHra.Properties;
+﻿using SimulacnaHra.Properties;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
@@ -103,13 +105,13 @@ namespace SimulacnaHra.prvkyHry.ovladanie
             switch (tl)
             {
                 case VykonavanaCinnost.pauza:
-                    aHra.Pauza();
+                    OknoAplikacie.DajInstanciu().Pauza();
                     Sprava.Info("Hra prerušená");
                     RestartCinnosti();
                     break;
 
                 case VykonavanaCinnost.start:
-                    aHra.Start();
+                    OknoAplikacie.DajInstanciu().Start();
                     Sprava.Info("Hra pokračuje");
                     RestartCinnosti();
                     break;
@@ -163,11 +165,41 @@ namespace SimulacnaHra.prvkyHry.ovladanie
                     break;
 
                 case VykonavanaCinnost.uloz:
+                    if (Sprava.DajNaVyber("Prajete si uložiť aktuálnu pozíciu v hre?\nUkladanie môže chvíľku trvať."))
+                    {
+                        try
+                        {
+                            OknoAplikacie.DajInstanciu().Pauza();
+                            Hra.DajInstanciu().Uloz();
+                            OknoAplikacie.DajInstanciu().Start();
+                            Sprava.Info("Hra bola úspešne uložená.");
+                        }
+                        catch (Exception)
+                        {
+                            Sprava.Info("Nie je možné uložiť hru!");
+                            OknoAplikacie.DajInstanciu().Start();
+                        }
+                        
+                    }
                     break;
 
                 case VykonavanaCinnost.nacitaj:
-                    break;
+                    if (Sprava.DajNaVyber("Prajete si načítať hru? Neuložený postup bude stratený!\nNačítanie môže chvíľku trvať."))
+                    {
+                        try
+                        {
+                            OknoAplikacie.DajInstanciu().Pauza();
+                            Hra.DajInstanciu().Nacitaj();
+                            OknoAplikacie.DajInstanciu().Start();
+                            Sprava.Info("Hra bola úspešne načítaná.");
+                        }
+                        catch (Exception)
+                        {
+                            Sprava.Info("Nie je možné načítať hru!");
+                        }
+                    }
 
+                    break;
                 case VykonavanaCinnost.zoznamVlakov:
                     SpravcaOkien.ZobrazZoznamDoprevProst(DruhVozidla.kolajove);
                     break;

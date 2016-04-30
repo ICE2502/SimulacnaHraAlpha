@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using gui;
+﻿using System;
+using System.Collections.Generic;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.infrastruktura;
@@ -13,6 +13,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky
     /// Vlak je dopravný prostriedok, ktorý jazdí po kolajniciach.
     /// Vyznačuje sa veľkou rýchlosťou a kapacitou
     /// </summary>
+    [Serializable]
     public class Vlak : PrototypDp
     {
         private int aAktualnyFrame;

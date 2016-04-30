@@ -8,6 +8,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using SimulacnaHra.gui;
 using SimulacnaHra.prvkyHry.infrastruktura;
 using SimulacnaHra.prvkyHry.mapa;
@@ -20,6 +23,7 @@ namespace SimulacnaHra.hra {
     /// Trieda ktor· m· na starosti priebeh hry
     /// udrûuje hern˙ plochu, poskytuje potrebnÈ sluûby
     /// </summary>
+    [Serializable]
 	public class Hra {
 
         private int aDen;
@@ -29,7 +33,7 @@ namespace SimulacnaHra.hra {
         private List<Mesto> aMesta;
         private HernaPlocha aHranaPlocha;
         private static Hra aInstanciaHry;
-        private OknoAplikacie aOkno;
+        //private OknoAplikacie aOkno;
         private const int cDlzkaDna = OknoAplikacie.cFPS*3;
         private int aPocetTikov;
 
@@ -53,11 +57,10 @@ namespace SimulacnaHra.hra {
         /// <summary>
         /// Konötruktor inicializuje vöetko potrebnÈ a p˙öùa hudbu
         /// </summary>
-	    private Hra(){
-
+	    private Hra()
+        {
             aSpolocnost = new Spolocnost("Transportna spolocnost");
             aHranaPlocha = new HernaPlocha();
-            aOkno = OknoAplikacie.DajInstanciu();
 
             aMesta = new List<Mesto>();
             aVyroba = new List<Vyroba>();
@@ -65,7 +68,7 @@ namespace SimulacnaHra.hra {
             aMesta = aHranaPlocha.ZoznamMiest;
             aVyroba = aHranaPlocha.ZoznamVyroby;
             aDen = 0;
-	    }
+        }
 
         /// <summary>
         /// Vr·ti vlastn˙ inötanciu
@@ -82,28 +85,39 @@ namespace SimulacnaHra.hra {
         /// 
         /// </summary>
 		public void Nacitaj(){
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream1 = new FileStream("save.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            aInstanciaHry = (Hra)formatter.Deserialize(stream1);
+            stream1.Close();
 
+            HernaPlocha.PocetStlpcov = aHranaPlocha.DajMaticu().GetLength(0);
+            HernaPlocha.PocetRiadkov = aHranaPlocha.DajMaticu().GetLength(1);
 		}
 
         /// <summary>
         /// Preruöenie hry
         /// </summary>
 		public void Pauza(){
-            aOkno.Pauza();
+
 		}
 
         /// <summary>
         /// PokraËovanie hry
         /// </summary>
 		public void Start(){
-            aOkno.Start();
+
+
 		}
 
         /// <summary>
         /// 
         /// </summary>
-		public void Uloz(){
-
+		public void Uloz()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("save.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, aInstanciaHry);
+            stream.Close();
 		}
 
         /// <summary>

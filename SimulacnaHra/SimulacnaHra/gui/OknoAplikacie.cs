@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
@@ -42,7 +43,6 @@ namespace SimulacnaHra.gui
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
-            aKamera = Kamera.DajInstanciu();
 
             InitializeComponent();
             casovac.Start();
@@ -69,6 +69,8 @@ namespace SimulacnaHra.gui
             Graphics zariadenie = paE.Graphics;
 
             aMatica = aHra.DajHernuPlochu().DajMaticu();
+
+            if (aKamera == null) return;
 
             for (int i = aKamera.OdsadenieY; i < aKamera.OdsadenieY + Kamera.cPocetOkienRiadky - PozadieMenu.cPosunZVrchu; i++)
             {
@@ -102,7 +104,7 @@ namespace SimulacnaHra.gui
                     new Rectangle(5, 50, 155, 300), SystemColors.ControlText, umiestnenie);
 
             }
-            
+            /*
             Pen pero = new Pen(Color.Red, 5);
             List<Vrchol> vrchol = aHra.DajHernuPlochu().ZoznamVrcholov;
             List<Hrana> hrany = aHra.DajHernuPlochu().ZoznamHran;
@@ -134,7 +136,7 @@ namespace SimulacnaHra.gui
                         new Point((stlpecDruhy + 4 - aKamera.OdsadenieX) * Policko.cVelkostPolicka + 19,
                             (riadokDruhy + 1 - aKamera.OdsadenieY) * Policko.cVelkostPolicka + 19));
                 }
-            }
+            }*/
             
             base.OnPaint(paE);
         }
@@ -147,6 +149,15 @@ namespace SimulacnaHra.gui
         private void casovac_Tick(object sender, EventArgs e)
         {
             aHra = Hra.DajInstanciu();
+
+            if (HernaPlocha.PocetStlpcov < 50)
+            {
+                aHra.Nacitaj();
+                return;
+            }
+
+            aKamera = Kamera.DajInstanciu();
+
             aHra.Tik();
             Vykreslene.Tik();
             this.Refresh();

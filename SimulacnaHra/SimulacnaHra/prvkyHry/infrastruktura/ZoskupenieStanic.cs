@@ -18,6 +18,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 	/// <summary>
 	/// Zoskupenie staníc je logickým prepojením susediach staníc
 	/// </summary>
+    [Serializable]
 	public class ZoskupenieStanic : IMaRozhranie{
 
 		private List<PrepravJednotka> aCaka;
@@ -26,7 +27,8 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
         private HashSet<Vyroba> aObsluhovanePodniky;
         private HashSet<Stanica> aStanice;
 	    private Dictionary<TypPrepravJednotky, int> aPoctyCakajucich;
-	    private ZoskupenieForm aOkno = null;
+        [NonSerialized]
+        private ZoskupenieForm aOkno = null;
 
         public bool Uzamknute { get; set; }
 	    public String PovoleneVozidla { get; internal set; }

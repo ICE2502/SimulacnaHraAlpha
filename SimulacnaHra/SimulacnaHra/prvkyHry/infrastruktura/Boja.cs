@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
 using SimulacnaHra.Properties;
@@ -15,6 +16,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// Boja slúži na orientáciu lodí.
     /// </summary>
+    [Serializable]
 	public class Boja : MiestoZastavenia {
 
         /// <summary>

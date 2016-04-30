@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.infrastruktura;
 
@@ -14,6 +15,7 @@ namespace SimulacnaHra.prvkyHry.vyroba {
     /// <summary>
     /// Prepravná jednotka slúži na prepravovanie - teda tvorbu zisku v hre
     /// </summary>
+    [Serializable]
 	public class PrepravJednotka {
 
 		private Stanica aCiel;
@@ -89,11 +91,12 @@ namespace SimulacnaHra.prvkyHry.vyroba {
         /// </summary>
 	    public void VydajOdnemu(Stanica paStanica)
 	    {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
 	        aCiel = paStanica;
             int zaklPocetDni = aZdroj.Poloha.Vzdialenost(aCiel.Poloha)/5;
 	        int skutPocetDni = Hra.DajInstanciu().Den - aZaciatocnyDen;
 	        double koeficient = this.DajKoeficient(zaklPocetDni, skutPocetDni);
-            Spolocnost.UpravFinancie((int)((double)koeficient * (int)Typ *zaklPocetDni));
+            spol.UpravFinancie((int)((double)koeficient * (int)Typ *zaklPocetDni));
 	    }
     }//end PrepravJednotka
 

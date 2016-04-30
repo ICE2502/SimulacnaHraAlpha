@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using gui;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.infrastruktura;
 using SimulacnaHra.prvkyHry.vyroba;
@@ -66,7 +65,7 @@ namespace SimulacnaHra.gui
         private void Aktualizuj()
         {
             aZoznam = Hra.DajInstanciu().Spolocnost.Stanice;
-            aZoznamPrirodzenych = ZoznamPrirodzenychStanic.DajInstanciu().Zoskupenia;
+            aZoznamPrirodzenych = Hra.DajInstanciu().DajHernuPlochu().ZoznamPrirodzenychStanic;
             foreach (var toto in aZoznam)
             {
                 aListBoxZoznamStanic.Items.Add(toto.ToString());

@@ -8,7 +8,6 @@
 
 using System;
 using System.Collections.Generic;
-using gui;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.infrastruktura;
@@ -21,6 +20,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky {
     /// <summary>
     /// Trieda, ktoré reprezentuje auto
     /// </summary>
+    [Serializable]
 	public class Auto : PrototypDp
 	{
         private int aAktualnyFrame;

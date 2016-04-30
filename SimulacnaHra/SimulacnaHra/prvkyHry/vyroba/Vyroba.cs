@@ -21,6 +21,7 @@ namespace SimulacnaHra.prvkyHry.vyroba {
     /// <summary>
     /// Výroba je základom ekonomiky. Hráè prepravuje porodukty výroby
     /// </summary>
+    [Serializable]
 	public class Vyroba : ZakladObrazku, IMaRozhranie {
 
 		private String aNazov;
@@ -28,7 +29,8 @@ namespace SimulacnaHra.prvkyHry.vyroba {
 		private Dictionary<TypPrepravJednotky, int> aProdukuje;
 		private ZoskupenieStanic aPrilahlaStanica;
 	    private DruhVyroby aDruhVyroby;
-        private VyrobaForm aOkno =null;
+        [NonSerialized]
+        private VyrobaForm aOkno = null;
 
         private Dok aDok;
         private const int cMinProd = 80;

@@ -17,6 +17,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky {
     /// <summary>
     /// Abstraktný predok jednotlivých typov vozidiel
     /// </summary>
+    [Serializable]
     public abstract class PrototypDp : ZakladObrazku
     {
         private Poloha aPoloha;

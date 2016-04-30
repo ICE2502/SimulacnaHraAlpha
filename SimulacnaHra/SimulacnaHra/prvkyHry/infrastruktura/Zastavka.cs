@@ -18,6 +18,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// Zastávke pre castné vozidlá
     /// </summary>
+    [Serializable]
 	public class Zastavka : Stanica {
 
 	    private List<PrototypDp> aMozneStroje;
@@ -88,13 +89,14 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 
 	    public override bool PostavStroj(int paPor)
 	    {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (paPor >= 0 && paPor < aMozneStroje.Count)
             {
                 Auto autoStavane = new Auto(aMozneStroje[paPor], SmerZast);
-                if (Spolocnost.UpravFinancie(-autoStavane.Cena))
+                if (spol.UpravFinancie(-autoStavane.Cena))
                 {
                     DopravnyProstriedok dp = new DopravnyProstriedok(autoStavane);
-                    Hra.DajInstanciu().Spolocnost.PridajDP(dp);
+                    spol.PridajDP(dp);
                     PridajOdstavene(dp);
                 }
             }

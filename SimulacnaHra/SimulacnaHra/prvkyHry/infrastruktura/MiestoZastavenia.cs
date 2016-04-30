@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
 
 namespace SimulacnaHra.prvkyHry.infrastruktura {
@@ -13,6 +14,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// Predok miest zastavenia. Za tie je považovaná každý stanica a bója
     /// </summary>
+    [Serializable]
 	public abstract class MiestoZastavenia : Infrastruktura {
 
         private int aPocetObsluhovanychStrojov;

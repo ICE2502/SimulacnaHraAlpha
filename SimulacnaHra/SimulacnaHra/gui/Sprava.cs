@@ -9,8 +9,7 @@
 using System;
 using System.Windows.Forms;
 
-
-namespace gui {
+namespace SimulacnaHra.gui {
 
     /// <summary>
     /// Statická trieda, ktorá zobrazuje správy hráèovi
@@ -24,6 +23,16 @@ namespace gui {
 		public static void Info(String paText){
             MessageBox.Show(paText, "Info", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
 		}
+
+        public static bool DajNaVyber(String paText)
+        {
+            DialogResult dialogResult = MessageBox.Show(paText, "Výber z možností", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return true;
+            }
+            return false;
+        }
 
 	}//end Sprava
 

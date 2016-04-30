@@ -7,7 +7,6 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using gui;
 using SimulacnaHra.gui;
 using SimulacnaHra.hra;
 using SimulacnaHra.matematika;
@@ -20,6 +19,7 @@ namespace SimulacnaHra.prvkyHry.dopravneProstriedky {
     /// <summary>
     /// Loï pláva po políèkach s vodou
     /// </summary>
+    [Serializable]
 	public class Lod : PrototypDp
 	{
 

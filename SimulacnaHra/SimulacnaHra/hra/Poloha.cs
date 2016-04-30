@@ -13,6 +13,7 @@ namespace SimulacnaHra.hra {
     /// <summary>
     /// Trieda Poloha zjednoduèuje prácu so súradnicami
     /// </summary>
+    [Serializable]
 	public class Poloha {
 
 		private int aRiadok;

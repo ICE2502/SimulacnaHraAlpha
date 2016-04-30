@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
@@ -17,6 +18,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// MÙûu tu zastavovaù lietadl·
     /// </summary>
+    [Serializable]
 	public class Letisko : Stanica
 	{
 	    private List<PrototypDp> aMozneStroje;
@@ -62,13 +64,14 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
 
 	    public override bool PostavStroj(int paPor)
 	    {
+            Spolocnost spol = Hra.DajInstanciu().Spolocnost;
             if (paPor >= 0 && paPor < aMozneStroje.Count)
 	        {
                 Lietadlo liet = new Lietadlo(aMozneStroje[paPor]);
-                if (Spolocnost.UpravFinancie(-liet.Cena))
+                if (spol.UpravFinancie(-liet.Cena))
                 {
                     DopravnyProstriedok dp = new DopravnyProstriedok(liet);
-                    Hra.DajInstanciu().Spolocnost.PridajDP(dp);
+                    spol.PridajDP(dp);
                     PridajOdstavene(dp);
                 }
 	        }

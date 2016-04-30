@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
 using SimulacnaHra.Properties;
@@ -17,6 +18,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// Je moné stava rôzne cestné prvky, napríklad rovnú cestu, 
     /// kriovatky, alebo viac druhov odboèiek
     /// </summary>
+    [Serializable]
 	public class Cesta : Infrastruktura {
 
 		private SmerCesty aOrientacia;

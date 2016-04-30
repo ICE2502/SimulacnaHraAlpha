@@ -6,6 +6,7 @@
 //  Original author: Dobroslav Grygar
 ///////////////////////////////////////////////////////////
 
+using System;
 using SimulacnaHra.hra;
 using SimulacnaHra.prvkyHry.dopravneProstriedky;
 using SimulacnaHra.prvkyHry.mapa;
@@ -15,6 +16,7 @@ namespace SimulacnaHra.prvkyHry.infrastruktura {
     /// <summary>
     /// Spoloèný abstraktný predok všetkej infraštruktúry
     /// </summary>
+    [Serializable]
 	public abstract class Infrastruktura : ZakladObrazku
 	{
 
